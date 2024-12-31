@@ -26,10 +26,13 @@ export const getDepartmentById = async (req: Request, res: Response): Promise<vo
   }
 };
 
+let lastId=0;
+
 // Crear un nuevo departamento
 export const createDepartment = async (req: Request, res: Response) => {
   try {
     const { name, description } = req.body;
+    lastId++;
     const newDepartment = new Department({ name, description });
     await newDepartment.save();
     res.status(201).json(newDepartment);

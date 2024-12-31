@@ -16,7 +16,7 @@ mongoose
 
 // Rutas
 app.use('/api/employees', employeeRoutes);
-app.use('/departments', departmentRoutes);
+app.use('/api/departments', departmentRoutes);
 
 // Inicio del servidor
 const PORT = 3000;
