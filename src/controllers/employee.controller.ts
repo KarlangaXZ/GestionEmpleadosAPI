@@ -26,11 +26,14 @@ export const getEmployeeById = async (req: Request, res: Response): Promise<void
   }
 };
 
+let lastId = 0;
 // Crear un nuevo empleado
 export const createEmployee = async (req: Request, res: Response) => {
   try {
     const { name, position, department, salary } = req.body;
-    const newEmployee = new Employee({ name, position, department, salary });
+    lastId++;
+    const newEmployee = new Employee({id:lastId, name, position, department, salary });
+    Employee.create(newEmployee);
     await newEmployee.save();
     res.status(201).json(newEmployee);
   } catch (error) {
