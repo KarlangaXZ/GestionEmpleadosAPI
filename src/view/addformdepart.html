@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">Employee Management System</h1>
+            <ul class="flex space-x-4">
+                <li><a href="#dashboard" class="hover:underline">Dashboard</a></li>
+                <li><a href="#employees" class="hover:underline">Employees</a></li>
+                <li><a href="#departments" class="hover:underline">Departments</a></li>
+                <li><a href="#roles" class="hover:underline">Roles</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto mt-6">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="bg-white p-6 rounded shadow mb-6">
+            <h2 class="text-2xl font-bold mb-4">Dashboard</h2>
+            <p class="text-gray-700">Welcome to the Employee Management System. Use the navigation bar to access different sections.</p>
+        </section>
+
+        <!-- Employees Section -->
+        <section id="employees" class="bg-white p-6 rounded shadow mb-6">
+            <h2 class="text-2xl font-bold mb-4">Employees</h2>
+            <!-- Add Employee Form -->
+            <!-- [Existing Employee Section Here] -->
+        </section>
+
+        <!-- Departments Section -->
+        <section id="departments" class="bg-white p-6 rounded shadow mb-6">
+            <h2 class="text-2xl font-bold mb-4">Departments</h2>
+            <!-- Add Department Form -->
+            <form id="add-department-form" class="bg-gray-50 p-4 rounded shadow mb-4">
+                <h3 class="text-xl font-semibold mb-4">Add Department</h3>
+                <div>
+                    <label for="department-name" class="block text-gray-700">Department Name</label>
+                    <input type="text" id="department-name" class="w-full border border-gray-300 rounded p-2">
+                </div>
+                <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add</button>
+            </form>
+            <!-- Department List -->
+            <table class="w-full border-collapse border border-gray-300">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="border border-gray-300 px-4 py-2">ID</th>
+                        <th class="border border-gray-300 px-4 py-2">Department Name</th>
+                        <th class="border border-gray-300 px-4 py-2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamically added rows -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Roles Section -->
+        <section id="roles" class="bg-white p-6 rounded shadow mb-6">
+            <h2 class="text-2xl font-bold mb-4">Roles</h2>
+            <!-- Add Role Form -->
+            <form id="add-role-form" class="bg-gray-50 p-4 rounded shadow mb-4">
+                <h3 class="text-xl font-semibold mb-4">Add Role</h3>
+                <div>
+                    <label for="role-name" class="block text-gray-700">Role Name</label>
+                    <input type="text" id="role-name" class="w-full border border-gray-300 rounded p-2">
+                </div>
+                <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add</button>
+            </form>
+            <!-- Role List -->
+            <table class="w-full border-collapse border border-gray-300">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="border border-gray-300 px-4 py-2">ID</th>
+                        <th class="border border-gray-300 px-4 py-2">Role Name</th>
+                        <th class="border border-gray-300 px-4 py-2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamically added rows -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white p-4 mt-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Employee Management System. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

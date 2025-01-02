@@ -5,7 +5,7 @@ import Department from '../models/department.model';
 export const getDepartments = async (req: Request, res: Response) => {
   try {
     const departments = await Department.find();
-    res.status(200).json(departments);
+    res.json(departments);
   } catch (error) {
     res.status(500).json({ message: 'Error al obtener departamentos', error });
   }
@@ -17,8 +17,8 @@ export const getDepartmentById = async (req: Request, res: Response): Promise<vo
     const { id } = req.params;
     const department = await Department.findById(id);
     if (!department) {
-     res.status(404).json({ message: 'Departamento no encontrado' });
-     return;
+      res.status(404).json({ message: 'Departamento no encontrado' });
+      return;
     }
     res.status(200).json(department);
   } catch (error) {
@@ -26,13 +26,10 @@ export const getDepartmentById = async (req: Request, res: Response): Promise<vo
   }
 };
 
-let lastId=0;
-
 // Crear un nuevo departamento
 export const createDepartment = async (req: Request, res: Response) => {
   try {
     const { name, description } = req.body;
-    lastId++;
     const newDepartment = new Department({ name, description });
     await newDepartment.save();
     res.status(201).json(newDepartment);
@@ -64,8 +61,8 @@ export const deleteDepartment = async (req: Request, res: Response): Promise<voi
     const { id } = req.params;
     const deletedDepartment = await Department.findByIdAndDelete(id);
     if (!deletedDepartment) {
-     res.status(404).json({ message: 'Departamento no encontrado' });
-     return
+      res.status(404).json({ message: 'Departamento no encontrado' });
+      return;
     }
     res.status(200).json({ message: 'Departamento eliminado' });
   } catch (error) {
