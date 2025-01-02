@@ -18,7 +18,7 @@ const department_model_1 = __importDefault(require("../models/department.model")
 const getDepartments = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const departments = yield department_model_1.default.find();
-        res.status(200).json(departments);
+        res.json(departments);
     }
     catch (error) {
         res.status(500).json({ message: 'Error al obtener departamentos', error });

@@ -5,7 +5,7 @@ import Role from '../models/role.model';
 export const getRoles = async (req: Request, res: Response) => {
   try {
     const roles = await Role.find();
-    res.status(200).json(roles);
+    res.json(roles);
   } catch (error) {
     res.status(500).json({ message: 'Error al obtener roles', error });
   }
@@ -46,8 +46,8 @@ export const updateRole = async (req: Request, res: Response): Promise<void> => 
       new: true,
     });
     if (!updatedRole) {
-     res.status(404).json({ message: 'Rol no encontrado' });
-     return;
+      res.status(404).json({ message: 'Rol no encontrado' });
+      return;
     }
     res.status(200).json(updatedRole);
   } catch (error) {
@@ -61,8 +61,8 @@ export const deleteRole = async (req: Request, res: Response): Promise<void> => 
     const { id } = req.params;
     const deletedRole = await Role.findByIdAndDelete(id);
     if (!deletedRole) {
-       res.status(404).json({ message: 'Rol no encontrado' });
-       return;
+      res.status(404).json({ message: 'Rol no encontrado' });
+      return;
     }
     res.status(200).json({ message: 'Rol eliminado' });
   } catch (error) {

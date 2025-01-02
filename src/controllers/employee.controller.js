@@ -41,11 +41,14 @@ const getEmployeeById = (req, res) => __awaiter(void 0, void 0, void 0, function
     }
 });
 exports.getEmployeeById = getEmployeeById;
+let lastId = 0;
 // Crear un nuevo empleado
 const createEmployee = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { name, position, department, salary } = req.body;
-        const newEmployee = new employee_model_1.default({ name, position, department, salary });
+        lastId++;
+        const newEmployee = new employee_model_1.default({ id: lastId, name, position, department, salary });
+        employee_model_1.default.create(newEmployee);
         yield newEmployee.save();
         res.status(201).json(newEmployee);
     }

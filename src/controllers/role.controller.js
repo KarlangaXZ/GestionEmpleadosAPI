@@ -18,7 +18,7 @@ const role_model_1 = __importDefault(require("../models/role.model"));
 const getRoles = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const roles = yield role_model_1.default.find();
-        res.status(200).json(roles);
+        res.json(roles);
     }
     catch (error) {
         res.status(500).json({ message: 'Error al obtener roles', error });
